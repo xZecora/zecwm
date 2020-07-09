@@ -12,7 +12,7 @@ working pywal (change my username to fit you in config.h)
 
 ## Installation
 ```
-git clone https://github.com/xZecora/zecwm
+git clone https://github.com/xZecora/zecwm.git
 cd zecdwm
 sudo make install
 ```

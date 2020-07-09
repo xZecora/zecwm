@@ -9,6 +9,7 @@ Big Daddy Zec's dwm fork
 
 ## Features
 working pywal (change my username to fit you in config.h)
+several custom scripts are used in the hotkeys section of config.h and and all of them and more can be found in my deskdots repo
 
 ## Installation
 ```

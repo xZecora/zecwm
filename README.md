@@ -5,7 +5,7 @@ Big Daddy Zec's dwm fork
 + fibonacci
 + urgentborder
 + restartsig
-+ autostart
++ autostart (modified to look for (dwmlauncher.sh in .config: ~/.config/dwmlauncher.sh)
 
 ## Features
 working pywal (change my username to fit you in config.h)

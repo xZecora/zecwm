@@ -35,6 +35,7 @@ fibonacci(Monitor *mon, int s) {
 				nx += nw;
 			else if((i % 4) == 2)
 				ny += nh;
+				nh += 1;
 			else if((i % 4) == 3) {
 				if(s)
 					nx += nw;

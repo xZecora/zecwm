@@ -30,11 +30,16 @@ static int resizehints = 1;    /* 1 means respect size hints in tiled resizals *
 #include "fibonacci.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-        { "├┬╴",      dwindle},
-	{ "[]=",      tile },    /* first entry is default */
-	{ "<><",      NULL },    /* no layout function means floating behavior */
-	{ "[ ]",      monocle },
-        { "[@]",      spiral},
+        { "尚",       dwindle },
+        /*{ "├┬╴",      dwindle },*/
+        { "帝",       tile },
+        /*{ "[]=",      tile },*/    /* first entry is default */
+        { "虚",       NULL },
+        /*{ "<><",      NULL },*/    /* no layout function means floating behavior */
+        { "単",       monocle },
+        /*{ "[ ]",      monocle },*/
+        { "比",       spiral },
+        /*{ "[@]",      spiral },*/
 };
 #include <X11/XF86keysym.h>
 /* key definitions */

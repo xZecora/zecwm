@@ -59,6 +59,7 @@ static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufon
 static const char *termcmd[]    = { "st", NULL };
 static const char *walldwmcmd[] = { "walldwm" , "/home/xzecora/Documents/Wallpapers", NULL };
 static const char *browsecmd[]     = { "qutebrowser", NULL };
+static const char *powermenu[]     = { "powermenu.sh", NULL};
 static const char *volumemute[]    = { "pactl", "set-sink-mute", "1", "toggle", NULL };
 static const char *volumelower[]   = { "pactl", "set-sink-volume", "1", "-5%", NULL };
 static const char *volumeraise[]   = { "pactl", "set-sink-volume", "1", "+5%", NULL };
@@ -102,6 +103,7 @@ static Key keys[] = {
         { MODKEY|ControlMask,           XK_t,      spawn,          {.v = fileman } },
         { MODKEY|ControlMask,           XK_s,      spawn,          {.v = musicplayer } },
         { MODKEY|ControlMask,           XK_d,      spawn,          {.v = discord } },
+        { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = powermenu } },
         TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

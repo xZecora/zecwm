@@ -1,4 +1,4 @@
-# Zecdwm
+# Zecwm
 Big Daddy Zec's dwm fork
 ## Patches
 + attachbottom

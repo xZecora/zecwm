@@ -18,8 +18,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Chromium",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -68,8 +67,9 @@ static const char *medianext[]     = { "playerctl", "next", NULL};
 static const char *mediaprev[]     = { "playerctl", "previous", NULL};
 static const char *mediastop[]     = { "playerctl", "stop", NULL};
 static const char *fileman[]       = { "thunar", NULL };
-static const char *musicplayer[]   = { "spotify", NULL };
+static const char *musicplayer[]   = { "st", "-e", "spotify-tui", NULL };
 static const char *discord[]       = { "Discord", NULL }; 
+static const char *ygopro[]       = { "YGOPRO", NULL }; 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -85,26 +85,27 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY|ControlMask,           XK_m,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_m,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_h,      focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_l,      focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_h,      tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_l,      tagmon,         {.i = +1 } },
-        { MODKEY,                       XK_backslash, spawn,       {.v = walldwmcmd } },
-        { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_l,      focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_h,      focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_l,      tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_h,      tagmon,         {.i = +1 } },
+  { MODKEY,                       XK_backslash, spawn,       {.v = walldwmcmd } },
+  { MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ ControlMask,                  XK_grave,  spawn,          {.v = termcmd } },
-        { MODKEY|ControlMask,           XK_f,      spawn,          {.v = browsecmd } },
-        { MODKEY|ControlMask,           XK_t,      spawn,          {.v = fileman } },
-        { MODKEY|ControlMask,           XK_s,      spawn,          {.v = musicplayer } },
-        { MODKEY|ControlMask,           XK_d,      spawn,          {.v = discord } },
-        { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = powermenu } },
-        TAGKEYS(                        XK_1,                      0)
+  { MODKEY|ControlMask,           XK_f,      spawn,          {.v = browsecmd } },
+  { MODKEY|ControlMask,           XK_t,      spawn,          {.v = fileman } },
+  { MODKEY|ControlMask,           XK_s,      spawn,          {.v = musicplayer } },
+  { MODKEY|ControlMask,           XK_d,      spawn,          {.v = discord } },
+  { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = powermenu } },
+  { MODKEY|ControlMask,             XK_y,      spawn,          {.v = ygopro } },
+  TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
@@ -114,15 +115,15 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-        { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
-       
-        { 0,                            XF86XK_AudioPlay, spawn, {.v = mediaplay } },
-        { 0,                            XF86XK_AudioNext, spawn, {.v = medianext } },
-        { 0,                            XF86XK_AudioPrev, spawn, {.v = mediaprev } },
-        { 0,                            XF86XK_AudioStop, spawn, {.v = mediastop } },
-        { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeraise } },
-        { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumelower } },
-        { 0,                            XF86XK_AudioMute, spawn, {.v = volumemute } }
+  { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+
+  { 0,                            XF86XK_AudioPlay, spawn, {.v = mediaplay } },
+  { 0,                            XF86XK_AudioNext, spawn, {.v = medianext } },
+  { 0,                            XF86XK_AudioPrev, spawn, {.v = mediaprev } },
+  { 0,                            XF86XK_AudioStop, spawn, {.v = mediastop } },
+  { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeraise } },
+  { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumelower } },
+  { 0,                            XF86XK_AudioMute, spawn, {.v = volumemute } }
 };
 
 /* button definitions */
